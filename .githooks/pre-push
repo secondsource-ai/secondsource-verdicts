@@ -1,0 +1,43 @@
+#!/bin/sh
+# pre-push — bot 身分機械閘(secondsource-verdicts 專用)
+# 三項檢查任一不過即擋 push。這個 repo 只准以 secondsource-devops 身分、
+# 走 github.com-ssbot SSH 別名推送。詳見 CLAUDE.md。
+
+BOT_EMAIL="312676049+secondsource-devops@users.noreply.github.com"
+fail=0
+
+# (a) remote 必須走 ssbot 別名
+url="$(git remote get-url origin)"
+case "$url" in
+  git@github.com-ssbot:*) ;;
+  *)
+    echo "pre-push BLOCK (a): origin URL 不是 git@github.com-ssbot: 開頭" >&2
+    echo "  實際值: $url" >&2
+    echo "  修法: git remote set-url origin git@github.com-ssbot:secondsource-ai/secondsource-verdicts.git" >&2
+    fail=1
+    ;;
+esac
+
+# (b) repo 層級 user.email 必須是 bot noreply
+email="$(git config user.email)"
+if [ "$email" != "$BOT_EMAIL" ]; then
+  echo "pre-push BLOCK (b): user.email 不是 bot noreply" >&2
+  echo "  實際值: $email" >&2
+  echo "  期望值: $BOT_EMAIL" >&2
+  echo "  修法: git config user.email \"$BOT_EMAIL\"" >&2
+  fail=1
+fi
+
+# (c) .git/config 不得含明文 token(判例:mvj-knowledge 曾在 remote URL 存 PAT)
+gitdir="$(git rev-parse --git-dir)"
+if grep -Eq 'github_pat_|ghp_' "$gitdir/config"; then
+  echo "pre-push BLOCK (c): $gitdir/config 內發現明文 token 字樣(github_pat_/ghp_)" >&2
+  echo "  修法: 清掉 config 內的 token,改走 SSH 別名認證" >&2
+  fail=1
+fi
+
+if [ "$fail" -ne 0 ]; then
+  echo "pre-push: 身分閘未過,push 已擋下。" >&2
+  exit 1
+fi
+exit 0
