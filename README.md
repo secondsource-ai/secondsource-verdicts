@@ -1,9 +1,12 @@
 # SecondSource — 公開裁決帳 / Public Verdict Record
 
-我們對 AI 產業說法做出的判斷,在**開獎之前**就逐條寫死在這裡:每一條都帶一個開獎日、
-一組事先講好的判準,以及一個我們自己改不掉的時戳。
-*Calls we make about the AI industry, written down here **before** they can be settled — each
-with a settlement date, a test agreed in advance, and a timestamp we cannot edit after the fact.*
+SecondSource 是一份追蹤 AI 產業的研究通訊(中/英/日;https://secondsource.io)。這個 repo 是它的
+公開存證面:我們對 AI 產業說法做出的判斷,在**開獎之前**就逐條寫死在這裡——每一條都帶
+一個開獎日、一組事先講好的判準,以及一個我們自己改不掉的時戳。
+*SecondSource is a research newsletter covering the AI industry (https://secondsource.io). This repo is its
+public record: calls we make about the AI industry, written down here **before** they can be
+settled — each with a settlement date, a test agreed in advance, and a timestamp we cannot edit
+after the fact.*
 
 目前 36 條在帳上。｜*36 calls currently on the record.*
 官網 / Site: https://secondsource.io
@@ -81,5 +84,5 @@ say plainly rather than disguise.*
 
 ---
 
-本頁僅供對答案時間戳與方法論核驗,不構成績效揭露或招攬(§70-1 分離,見 docs/86 §6)。
+本頁僅供對答案時間戳與方法論核驗,不構成績效揭露或招攬。
 This page exists to timestamp a call and expose the test that settles it. It is not a performance disclosure and not a solicitation.
