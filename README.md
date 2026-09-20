@@ -8,7 +8,7 @@ public record: calls we make about the AI industry, written down here **before**
 settled — each with a settlement date, a test agreed in advance, and a timestamp we cannot edit
 after the fact.*
 
-目前 45 條在帳上。｜*45 calls currently on the record.*
+目前 46 條在帳上。｜*46 calls currently on the record.*
 官網 / Site: https://secondsource.io
 
 ---
