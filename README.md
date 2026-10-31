@@ -7,7 +7,7 @@ SecondSource 是一份追蹤 AI 產業的研究通訊(中/英/日;https://second
 public record: calls we make about the AI industry, written down here **before** they can be
 settled — each with a check date, a test agreed in advance, and a version history anyone can diff.*
 
-目前 61 條在帳上。｜*61 calls currently on the record.*
+目前 62 條在帳上。｜*62 calls currently on the record.*
 官網 / Site: https://secondsource.io
 
 ---
